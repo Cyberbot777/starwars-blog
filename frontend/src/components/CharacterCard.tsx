@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useFavorites } from "../context/FavoritesContext";
 
 interface CharacterCardProps {
   id: string;
@@ -11,10 +12,31 @@ export default function CharacterCard({
   id,
   name,
   imageUrl,
-  detailsPath = "people", // Default to 'people'
+  detailsPath = "people", 
 }: CharacterCardProps) {
   const defaultImage =
     "https://lumiere-a.akamaihd.net/v1/images/din-djarin-the-mandalorian-main_38344f24.jpeg?region=0%2C100%2C1920%2C1080";
+
+  const { favorites, addFavorite, removeFavorite } = useFavorites();
+
+  const isFavorited = favorites.some(
+    (item) => item.id === id && item.type === detailsPath
+  );
+
+  const handleToggleFavorite = () => {
+    const favoriteItem = {
+      id,
+      name,
+      type: detailsPath,
+      imageUrl: imageUrl || defaultImage,
+    };
+
+    if (isFavorited) {
+      removeFavorite(id);
+    } else {
+      addFavorite(favoriteItem);
+    }
+  };
 
   return (
     <div className="bg-zinc-800 rounded shadow-md overflow-hidden hover:shadow-lg transition">
@@ -32,7 +54,12 @@ export default function CharacterCard({
           >
             Learn more
           </Link>
-          <button className="text-white text-xl hover:text-red-500 transition-all">
+          <button
+            onClick={handleToggleFavorite}
+            className={`text-xl transition-all ${
+              isFavorited ? "text-red-500" : "text-white hover:text-red-500"
+            }`}
+          >
             ♥
           </button>
         </div>
