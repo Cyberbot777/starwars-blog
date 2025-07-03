@@ -6,7 +6,9 @@ interface CharacterCardProps {
 }
 
 export default function CharacterCard({ id, name }: CharacterCardProps) {
-  const imageUrl = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
+  const imageUrl =
+  "https://lumiere-a.akamaihd.net/v1/images/din-djarin-the-mandalorian-main_38344f24.jpeg?region=0%2C100%2C1920%2C1080";
+
 
   return (
     <div className="bg-zinc-800 rounded shadow-md overflow-hidden hover:shadow-lg transition">
