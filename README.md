@@ -8,7 +8,7 @@ This project was built to demonstrate mastery of React, API integration, dynamic
 
 ## 🔗 Live Demo (Frontend)
 
-_Deploy Link Coming Soon_
+[View the deployed project](https://starwars-blog-lyart.vercel.app/)
 
 ---
 
@@ -22,9 +22,13 @@ _Deploy Link Coming Soon_
 - Responsive **card components** with:
   - Static placeholder images
   - "Learn more" links for full details  
+  - Heart button (♥) to favorite or unfavorite items
 - Dynamic **Details Page**:
   - Fetches full info for Characters, Planets, or Vehicles
   - Displays unique data per category  
+- Favorites Page:
+  - Shows all favorited items across categories
+  - Allows removing favorites by clicking the Heart button
 - Clean, responsive dark theme with hover effects
 - Fully functional **React Router** navigation
 
@@ -50,10 +54,11 @@ Clone the repo and run the project locally.
 project-root/
 ├── src/
 │   ├── components/       ← Reusable components (Navbar, CharacterCard, PageWrapper)
+│   ├── context/          ← FavoritesContext (global state)
 │   ├── pages/            ← Pages for People, Planets, Vehicles, Favorites, Details, Home
 │   ├── App.tsx           ← Main app routing
 │   └── main.tsx          ← Entry point
-├── public/               ← Static assets
+├── public/               ← Static assets (images, logo)
 ├── package.json          ← Project config
 └── tailwind.config.js    ← Tailwind setup
 ```
@@ -79,6 +84,7 @@ npm run dev
 - Fetch external API data and display it in a React app
 - Use **React Router** for navigation and detail pages
 - Build reusable components with dynamic props
+- Use React Context for global Favorites state
 - Use `useEffect` and `useState` for API data fetching
 - Structure project for clarity and scalability
 - Deliver a clean, user-friendly interface
@@ -91,6 +97,7 @@ npm run dev
 - Build scalable page structures with reusable components
 - Write clean, flexible components with fallback logic
 - Handle multiple dynamic routes with React Router
+- Manage global state cleanly with React Context
 - Develop production-quality UI with Tailwind CSS
 
 ---
